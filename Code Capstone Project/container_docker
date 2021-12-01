@@ -1,0 +1,24 @@
+# Akses Vm di terminal
+SSH naufaltq@52.237.121.120
+
+# Update Repository
+sudo apt update
+
+# Instalasi Docker
+sudo apt install docker.io
+
+# Untuk Clone Image 
+docker pull bitnami/moodle
+
+# Untuk download file script Moodle via compose
+curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-moodle/master/docker-compose.yml > docker-compose.yml
+
+#  Instalasi tools docker-compose
+sudo apt install docker-compose
+
+# Untuk eksekusi script
+sudo docker-compose up -d
+
+# Untuk membuat portainer
+docker run -d -p 8100:8000 -p 9000:9000 --name=portainer --restart=always --pull=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
